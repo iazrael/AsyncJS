@@ -6,7 +6,9 @@
     function TaskQueue(){
         this.tasks = [];
         this.dones = [];
-        this.add.apply(this, slice.apply(arguments));
+        if(arguments.length){
+            this.add.apply(this, slice.apply(arguments));
+        }
     }
 
     TaskQueue.prototype = {
@@ -24,7 +26,7 @@
             var that = this,
                 count = 0,
                 i, task, done;
-                
+
             function onDone(){
                 if(++count === that.tasks.length){
                     for(i = 0; done = that.dones[i]; i++){
