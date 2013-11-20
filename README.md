@@ -1,7 +1,4 @@
-async.js
-========
-
-a very simple async task for js(node, browser)
+简易的异步函数同步处理的方法
 
 
 ## Example
