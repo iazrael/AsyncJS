@@ -1,13 +1,4 @@
-// AsyncJS.queue().add(function(queue){
 
-//     queue.next();
-// }).add(function(){
-
-//     queue.next();
-// }).done(function(){
-
-//     console.log('all done')
-// }).run();
 (function(exports){
 
     var slice = Array.prototype.slice;
