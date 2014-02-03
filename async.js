@@ -1,4 +1,3 @@
-
 (function(exports){
 
     var slice = Array.prototype.slice;
@@ -22,7 +21,7 @@
             this.dones = this.dones.concat(argus);
             return this;
         },
-        run: function(){
+        start: function(){
             var that = this,
                 count = 0,
                 i, task, done;
