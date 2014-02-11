@@ -1,18 +1,18 @@
 简易的异步函数同步处理的方法
 
-## API
+# API
 
-# {Function} AsyncJS.queue 
+#### {Function} AsyncJS.queue 
 @return {Task}
 
 创建一个按串行执行的异步任务队列, 每个任务执行完成之后可调用 done 方法传入执行结果, 传递给下一个任务使用, 等最后一个任务执行完成之后执行 done 传入的回调
 
-# {Function} AsyncJS.array 
+#### {Function} AsyncJS.array 
 @return {Task}
 
 创建一个并发执行的异步任务队列, 所有都任务执行完成之后执行 done 回调
 
-# {Function} Task.next 
+#### {Function} Task.next 
 @return {Task}
 
 添加串行任务, 可传入多个方法, 可链式调用
@@ -21,7 +21,7 @@
 
     AsyncJS.queue().next(func1).next(func2, func3).start();
 
-# {Function} Task.add 
+#### {Function} Task.add 
 @return {Task}
 
 添加并行任务, 可传入多个方法, 可链式调用
@@ -30,7 +30,7 @@
 
     AsyncJS.array().add(func1).add(func2, func3).start();
 
-# {Function} Task.done
+#### {Function} Task.done
 添加当所有任务都完成后的回调, 可传入多个方法, 可链式调用
 
 @example
@@ -38,13 +38,13 @@
     AsyncJS.array().done(func1).done(func2, func3).start();
 
 
-# {Function} Task.start
+#### {Function} Task.start
 开始执行任务
 
-# {Object} Context
+#### {Object} Context
 每个任务的执行上下文都是一个特殊的{Context}, 改 Context 包含了一个方法 done 和一个属性 data, done 用于告知队列该任务已经完成, data 则是用于获取已完成的任务保存的返回值
 
-# {Function} Context.done
+#### {Function} Context.done
 告知队列该任务已经完成, 如果有数据需要传递给后面的任务, 可传入 key 和 value, 多用于串行任务
 
 @example
@@ -55,11 +55,11 @@
         this.data['first'].v === 1;// true
     }).start();
     
-# {Object} Context.data
+#### {Object} Context.data
 获取已完成的任务保存的返回值, 是个 key - value 类型的 map
 
 
-## Example
+# Example
     
     //1. 添加到next的方法按顺序执行, 全部执行完成之后按顺序执行done回调
     AsyncJS.queue().next(function(){
