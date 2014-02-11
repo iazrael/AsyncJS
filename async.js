@@ -113,9 +113,12 @@
             }
 
             context.length = this.tasks.length;
-
-            for(i = 0; task = this.tasks[i]; i++){
-                task.call(context);
+            if(context.length){
+                for(i = 0; task = this.tasks[i]; i++){
+                    task.call(context);
+                }
+            }else{
+                onFinish();
             }
 
         }
