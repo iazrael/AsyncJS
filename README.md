@@ -62,17 +62,17 @@
 # Example
     
     //1. 添加到next的方法按顺序执行, 全部执行完成之后按顺序执行done回调
-    AsyncJS.queue().next(function(){
+    AsyncJS.queue().next(function(){ // func1
             var that = this;
             setTimeout(function(){
                 that.done('ajax', { a: 1}); // done with data
             }, 500);
-        }, function(){
+        }, function(){ // func2
             var that = this;
             setTimeout(function(){
                 that.done(); // just done
             }, 1500);
-        }).next(function(){
+        }).next(function(){ // func1, func2 都执行完成之后才会执行这个方法
             var that = this;
             this.data['ajax'].a === 1; //true
 
